@@ -1,4 +1,4 @@
-package ga.tumgaming.tumine.tuminetemplate.listeners;
+package ga.tumgaming.tumine.tuminemessage.listeners;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;

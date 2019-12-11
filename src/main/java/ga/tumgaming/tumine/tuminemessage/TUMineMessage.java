@@ -1,4 +1,4 @@
-package ga.tumgaming.tumine.tuminetemplate;
+package ga.tumgaming.tumine.tuminemessage;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -7,25 +7,25 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Logger;
 
-import ga.tumgaming.tumine.tuminetemplate.listeners.BlockBreakListener;
-import ga.tumgaming.tumine.tuminetemplate.listeners.ClickListener;
-import ga.tumgaming.tumine.tuminetemplate.listeners.JoinListener;
-import ga.tumgaming.tumine.tuminetemplate.listeners.SkillsCommand;
-import ga.tumgaming.tumine.tuminetemplate.util.*;
+import ga.tumgaming.tumine.tuminemessage.listeners.BlockBreakListener;
+import ga.tumgaming.tumine.tuminemessage.listeners.ClickListener;
+import ga.tumgaming.tumine.tuminemessage.listeners.JoinListener;
+import ga.tumgaming.tumine.tuminemessage.listeners.MessagesCommand;
+import ga.tumgaming.tumine.tuminemessage.util.*;
 
-public class TUMineTemplate extends JavaPlugin {
+public class TUMineMessage extends JavaPlugin {
 
 	private static Config config;
 	private static Plugin plugin;
 
 	@Override
 	public void onEnable() {
-		TUMineTemplate.plugin = this;
+		TUMineMessage.plugin = this;
 
 		config = new Config(plugin, "skills");
 		
-	    // Register our command "createInbox" (set an instance of your command class as executor)
-	    this.getCommand("skills").setExecutor(new SkillsCommand());
+	    // Register our command (set an instance of your command class as executor)
+	    this.getCommand("messages").setExecutor(new MessagesCommand());
 		
 		registerEvents();
 
