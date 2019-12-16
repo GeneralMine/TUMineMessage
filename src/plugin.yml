@@ -1,4 +1,4 @@
-main: ga.tumgaming.tumine.tuminemessage.tuminemessage
+main: ga.tumgaming.tumine.tuminemessage.TUMineMessage
 name: TUMineMessage
 prefix: TUMineMessage
 author: GeneralMine, HrMoritz, Laurox
@@ -8,5 +8,6 @@ depend:
    - Vault
 
 commands:
-   messages:
-      description: Overview of your messages
+  tumsg:
+    description: Overview of your messages
+    usage: Syntax error!
