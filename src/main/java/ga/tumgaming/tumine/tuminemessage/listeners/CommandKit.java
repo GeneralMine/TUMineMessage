@@ -32,7 +32,6 @@ public class CommandKit implements CommandExecutor {
 								player.sendMessage(TUMineMessage.getPrefix() + messages.addMessage(args[1], msg));
 								return true;
 							}
-							//T
 						}else {
 							player.sendMessage(TUMineMessage.getPrefix() +ChatColor.RED +  "You dont have permission!");
 						}
