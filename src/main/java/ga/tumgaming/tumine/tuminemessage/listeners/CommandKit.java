@@ -1,5 +1,6 @@
 package ga.tumgaming.tumine.tuminemessage.listeners;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -29,11 +30,14 @@ public class CommandKit implements CommandExecutor {
 								for (int i = 3; i < args.length; i++) {
 									msg = msg + " " + args[i];
 								}
-								player.sendMessage(TUMineMessage.getPrefix() + messages.addMessage(args[1], msg));
-								return true;
+								if (Bukkit.getServer().getPlayerExact(args[1]) != null) {
+									Bukkit.getServer().getPlayerExact(args[1]).sendMessage(msg);
+									player.sendMessage(TUMineMessage.getPrefix() + messages.addMessage(args[1], msg));
+									return true;
+								}
 							}
-						}else {
-							player.sendMessage(TUMineMessage.getPrefix() +ChatColor.RED +  "You dont have permission!");
+						} else {
+							player.sendMessage(TUMineMessage.getPrefix() + ChatColor.RED + "You dont have permission!");
 						}
 					} else if (args[0].equalsIgnoreCase("deleteall")) {
 						player.sendMessage(TUMineMessage.getPrefix() + messages.deleteAll(player.getName()));
@@ -42,28 +46,33 @@ public class CommandKit implements CommandExecutor {
 						if (args.length == 2) {
 							try {
 								int index = Integer.parseInt(args[1]);
-								player.sendMessage(TUMineMessage.getPrefix() + messages.deleteMessage(player.getName(), index));
+								player.sendMessage(
+										TUMineMessage.getPrefix() + messages.deleteMessage(player.getName(), index));
 								return true;
 							} catch (NumberFormatException e) {
-								player.sendMessage(TUMineMessage.getPrefix() +ChatColor.RED + "Please type in a number!");
+								player.sendMessage(
+										TUMineMessage.getPrefix() + ChatColor.RED + "Please type in a number!");
 								return true;
 							}
 						}
-						player.sendMessage(TUMineMessage.getPrefix() +ChatColor.RED + "Please type in a number!");
+						player.sendMessage(TUMineMessage.getPrefix() + ChatColor.RED + "Please type in a number!");
 						return true;
 					} else if (args[0].equalsIgnoreCase("read")) {
 						if (args.length == 2) {
 							try {
 								int index = Integer.parseInt(args[1]);
-								player.sendMessage(TUMineMessage.getPrefix() + messages.getMessage(player.getName(), index));
+								player.sendMessage(
+										TUMineMessage.getPrefix() + messages.getMessage(player.getName(), index));
 								return true;
 							} catch (NumberFormatException e) {
-								player.sendMessage(TUMineMessage.getPrefix() +ChatColor.RED + "Please type in a number!");
+								player.sendMessage(
+										TUMineMessage.getPrefix() + ChatColor.RED + "Please type in a number!");
 								return true;
 							}
 						}
 					} else if (args[0].equalsIgnoreCase("list")) {
-						player.sendMessage(TUMineMessage.getPrefix() + "You have " + messages.getMessagesCount(player.getName()) + " messages!");
+						player.sendMessage(TUMineMessage.getPrefix() + "You have "
+								+ messages.getMessagesCount(player.getName()) + " messages!");
 						return true;
 					}
 				}
