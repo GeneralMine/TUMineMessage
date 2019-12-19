@@ -41,7 +41,7 @@ public class Messages {
 	public String addMessage(String name, String message) {
 		UUID u = getUUIDfromPlayer(name);
 		if (u != null) {
-		String uuid = u.toString();
+			String uuid = u.toString();
 			String allMessages = players.get(uuid);
 			if (allMessages == null || allMessages.equals("")) {
 				players.set(uuid, message);
@@ -50,7 +50,7 @@ public class Messages {
 				players.set(uuid, allMessages);
 			}
 			return "Message sent!";
-		}else {
+		} else {
 			return ChatColor.RED + "This Player has never played on this server!";
 		}
 	}

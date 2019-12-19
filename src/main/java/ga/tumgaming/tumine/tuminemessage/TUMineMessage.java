@@ -55,6 +55,10 @@ public class TUMineMessage extends JavaPlugin {
 	public static Plugin getPlugin() {
 		return plugin;
 	}
+	
+	public static Messages getMessageClass() {
+		return messages;
+	}
 
 	
 	public static String getPrefix() {

@@ -34,11 +34,12 @@ public class CommandKit implements CommandExecutor {
 									Bukkit.getServer().getPlayerExact(args[1])
 											.sendMessage(TUMineMessage.getPrefix() + msg);
 								}
-								player.sendMessage(messages.addMessage(args[1], msg));
+								player.sendMessage(TUMineMessage.getPrefix() + messages.addMessage(args[1], msg));
 								return true;
 							}
 						} else {
 							player.sendMessage(TUMineMessage.getPrefix() + ChatColor.RED + "You dont have permission!");
+							return true;
 						}
 					} else if (args[0].equalsIgnoreCase("deleteall")) {
 						player.sendMessage(TUMineMessage.getPrefix() + messages.deleteAll(player.getName()));
