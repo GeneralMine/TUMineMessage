@@ -58,7 +58,10 @@ public class Messages {
 	public String addMessage(UUID _uuid, String message) {
 		String uuid = _uuid.toString();
 		String allMessages = players.get(uuid);
-		if (allMessages.equals("") || allMessages == null) {
+		Bukkit.getServer().getConsoleSender().sendMessage("Test");
+		if (allMessages == null) {
+			players.set(uuid, message);
+		} else if (allMessages.equals("")) {
 			players.set(uuid, message);
 		} else {
 			allMessages = allMessages + ";" + message;
