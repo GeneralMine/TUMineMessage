@@ -45,7 +45,7 @@ public class CommandKit implements CommandExecutor {
 								player.sendMessage(TUMineMessage.getPrefix() + messages.deleteMessage(player.getName(), index));
 								return true;
 							} catch (NumberFormatException e) {
-								player.sendMessage(TUMineMessage.getPrefix() +ChatColor.RED + "Please type in a number");
+								player.sendMessage(TUMineMessage.getPrefix() +ChatColor.RED + "Please type in a number!");
 								return true;
 							}
 						}
@@ -58,7 +58,7 @@ public class CommandKit implements CommandExecutor {
 								player.sendMessage(TUMineMessage.getPrefix() + messages.getMessage(player.getName(), index));
 								return true;
 							} catch (NumberFormatException e) {
-								player.sendMessage(TUMineMessage.getPrefix() +ChatColor.RED + "Please type in a number");
+								player.sendMessage(TUMineMessage.getPrefix() +ChatColor.RED + "Please type in a number!");
 								return true;
 							}
 						}
