@@ -32,7 +32,7 @@ public class CommandKit implements CommandExecutor {
 								}
 								if (Bukkit.getServer().getPlayerExact(args[1]) != null) {
 									Bukkit.getServer().getPlayerExact(args[1]).sendMessage(msg);
-									player.sendMessage(TUMineMessage.getPrefix() + messages.addMessage(args[1], msg));
+									player.sendMessage(TUMineMessage.getPrefix() + messages.addMessage(TUMineMessage.getPrefix() + args[1], msg));
 									return true;
 								}
 							}
