@@ -31,10 +31,11 @@ public class CommandKit implements CommandExecutor {
 									msg = msg + " " + args[i];
 								}
 								if (Bukkit.getServer().getPlayerExact(args[1]) != null) {
-									Bukkit.getServer().getPlayerExact(args[1]).sendMessage(msg);
-									player.sendMessage(TUMineMessage.getPrefix() + messages.addMessage(args[1], msg));
-									return true;
+									Bukkit.getServer().getPlayerExact(args[1])
+											.sendMessage(TUMineMessage.getPrefix() + msg);
 								}
+								player.sendMessage(messages.addMessage(args[1], msg));
+								return true;
 							}
 						} else {
 							player.sendMessage(TUMineMessage.getPrefix() + ChatColor.RED + "You dont have permission!");
